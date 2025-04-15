@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-# Initialize the Gemini model (latest free one)
+
 try:
     model = genai.GenerativeModel(model_name="models/gemini-1.5-pro-latest")
 except Exception as e:
@@ -48,12 +48,12 @@ app.title("🧠 Medical Diagnosis Assistant (Gemini)")
 app.geometry("750x650")
 app.configure(bg="white")  # Force bright background
 
-# Fonts and styles
+
 label_font = ("Arial", 14, "bold")
 text_font = ("Arial", 12)
 button_font = ("Arial", 13, "bold")
 
-# Symptoms Input
+
 tk.Label(app, text="📝 Enter Symptoms:", font=label_font, bg="white", fg="#1a1a1a").pack(pady=(15, 5))
 symptoms_input = scrolledtext.ScrolledText(app, wrap=tk.WORD, width=80, height=6, font=text_font,
                                            bg="#f0f0f0", fg="black", bd=2, relief="solid", insertbackground="black")
@@ -65,7 +65,7 @@ history_input = scrolledtext.ScrolledText(app, wrap=tk.WORD, width=80, height=4,
                                           bg="#f0f0f0", fg="black", bd=2, relief="solid", insertbackground="black")
 history_input.pack(pady=5)
 
-# Get Diagnosis Button
+
 tk.Button(app, text="🩺 Get Diagnosis", command=get_diagnosis, font=button_font,
           bg="#007acc", fg="white", activebackground="#005b99", activeforeground="white",
           width=25, height=2, bd=3, relief="raised").pack(pady=25)
@@ -76,5 +76,5 @@ diagnosis_output = scrolledtext.ScrolledText(app, wrap=tk.WORD, width=80, height
                                              bg="#f9f9f9", fg="black", bd=2, relief="sunken", insertbackground="black")
 diagnosis_output.pack(pady=10)
 diagnosis_output.config(state="disabled")
-# Run the app
+
 app.mainloop()
